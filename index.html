@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ชื่อของคุณ | Portfolio - นักพัฒนา</title>
+
+    <style>
+        /* ================================================= */
+        /* === ส่วนที่ 1: การตั้งค่าพื้นฐานและตัวแปร CSS === */
+        /* ================================================= */
+        :root {
+            /* สีหลักที่ทันสมัย */
+            --primary-color: #007BFF; /* สีน้ำเงินสดใส */
+            --secondary-color: #343A40; /* สีเทาดำ */
+            --background-color: #F8F9FA; /* สีขาว/เทาอ่อนมาก */
+            --text-color: #212529;
+            --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        /* รีเซ็ตเบื้องต้น */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* ======================================= */
+        /* === ส่วนที่ 2: โครงสร้างและการจัดวาง === */
+        /* ======================================= */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            margin-left: 20px;
+            padding: 5px 10px;
+            transition: color var(--transition-speed);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* ส่วนหลัก (Hero Section) */
+        #hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), #00A3FF);
+            color: #FFFFFF;
+        }
+
+        .hero-content {
+            padding: 60px 0;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+        }
+
+        /* ปุ่มหลัก */
+        .btn-primary {
+            display: inline-block;
+            background-color: #FFFFFF;
+            color: var(--primary-color);
+            padding: 12px 30px;

@@ -3,23 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ชื่อของคุณ | Portfolio - นักพัฒนา</title>
+    <title>ชื่อของคุณ - Web Developer Portfolio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* ================================================= */
-        /* === ส่วนที่ 1: การตั้งค่าพื้นฐานและตัวแปร CSS === */
-        /* ================================================= */
-        :root {
-            /* สีหลักที่ทันสมัย */
-            --primary-color: #007BFF; /* สีน้ำเงินสดใส */
-            --secondary-color: #343A40; /* สีเทาดำ */
-            --background-color: #F8F9FA; /* สีขาว/เทาอ่อนมาก */
-            --text-color: #212529;
-            --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            --transition-speed: 0.3s;
-        }
-
-        /* รีเซ็ตเบื้องต้น */
+        /* การ Reset พื้นฐาน */
         * {
             margin: 0;
             padding: 0;
@@ -27,84 +16,356 @@
         }
 
         body {
-            font-family: var(--font-family);
-            background-color: var(--background-color);
-            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            scroll-behavior: smooth;
+            background-color: #f4f4f9;
+            color: #333;
         }
 
-        /* ======================================= */
-        /* === ส่วนที่ 2: โครงสร้างและการจัดวาง === */
-        /* ======================================= */
+        /* ส่วน Layout หลัก */
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px 0;
         }
-
-        header {
-            background-color: #FFFFFF;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--secondary-color);
-            margin-left: 20px;
-            padding: 5px 10px;
-            transition: color var(--transition-speed);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-        }
-
-        /* ส่วนหลัก (Hero Section) */
-        #hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary-color), #00A3FF);
-            color: #FFFFFF;
-        }
-
-        .hero-content {
+        
+        section {
             padding: 60px 0;
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
+        /* Header และ Navigation */
+        header {
+            background: #2c3e50; /* สีกรมเข้ม */
+            color: #fff;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        .hero-content p {
-            font-size: 1.25rem;
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        header ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+            transition: color 0.3s;
+        }
+
+        header ul li a:hover {
+            color: #1abc9c; /* สีเขียวน้ำทะเล */
+        }
+
+        /* ปุ่มทั่วไป */
+        .btn {
+            display: inline-block;
+            background: #1abc9c;
+            color: #fff;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #148f77;
+        }
+
+        /* Hero (About Me) */
+        .hero {
+            padding: 120px 0;
+            text-align: center;
+            background: #ecf0f1; /* สีเทาอ่อน */
+        }
+
+        .hero h2 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .hero p {
+            font-size: 1.3em;
             margin-bottom: 30px;
         }
 
-        /* ปุ่มหลัก */
-        .btn-primary {
-            display: inline-block;
-            background-color: #FFFFFF;
-            color: var(--primary-color);
-            padding: 12px 30px;
+        /* Skills */
+        #skills {
+            text-align: center;
+            background-color: #fff;
+        }
+
+        #skills h2, #projects h2, #contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            padding: 0 50px;
+        }
+
+        .skill-item {
+            background: #34495e;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .skill-item:hover {
+            background: #1abc9c;
+        }
+
+        /* Projects */
+        #projects {
+            background: #f4f4f9;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        
+        .project-card h3 {
+            color: #1abc9c;
+            margin-bottom: 10px;
+        }
+
+        .project-links a {
+            margin-right: 15px;
+            color: #34495e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .project-links a:hover {
+            color: #1abc9c;
+        }
+
+        /* Contact */
+        #contact {
+            text-align: center;
+            background-color: #ecf0f1;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 20px auto;
+            gap: 15px;
+        }
+
+        .contact-form input, 
+        .contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #1abc9c;
+        }
+
+        /* Footer */
+        footer {
+            background: #34495e;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+
+        /* Media Query สำหรับ Responsive Design (มือถือ) */
+        @media (max-width: 768px) {
+            header nav {
+                flex-direction: column;
+            }
+            header ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding-top: 10px;
+            }
+            header ul li {
+                margin: 5px 10px;
+            }
+            .hero h2 {
+                font-size: 2.5em;
+            }
+            #skills h2, #projects h2, #contact h2 {
+                font-size: 2em;
+            }
+            .skills-grid {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <h1 class="logo">ชื่อของคุณ</h1>
+            <ul>
+                <li><a href="#about">เกี่ยวกับฉัน</a></li>
+                <li><a href="#skills">ทักษะ</a></li>
+                <li><a href="#projects">โครงการ</a></li>
+                <li><a href="#contact">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="hero container">
+            <div class="hero-content">
+                <h2>👋 สวัสดีครับ, ชื่ออิงอิง</h2>
+                <p>Front-End Developer ที่มีความมุ่งมั่นในการสร้าง User Interface ที่สวยงามและตอบสนองได้ดีด้วย HTML, CSS และ JavaScript</p>
+                <a href="#projects" class="btn">ดูโครงการเด่น</a>
+            </div>
+        </section>
+
+        <section id="skills" class="container">
+            <h2>🛠️ ทักษะของฉัน</h2>
+            <div class="skills-grid">
+                <div class="skill-item">HTML5 Semantic</div>
+                <div class="skill-item">CSS3 (Flexbox/Grid)</div>
+                <div class="skill-item">JavaScript (ES6+)</div>
+                <div class="skill-item">Responsive Design</div>
+                <div class="skill-item">Git & GitHub</div>
+                <div class="skill-item">Figma to HTML</div>
+            </div>
+        </section>
+
+        <section id="projects" class="container">
+            <h2>📂 โครงการเด่น</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <h3>To-Do List App (Vanilla JS)</h3>
+                    <p>แอปพลิเคชันจัดการรายการสิ่งที่ต้องทำ แสดงการจัดการ DOM, การจัดเก็บข้อมูลใน LocalStorage และ Event Handling</p>
+                    <p><b>เทคโนโลยี:</b> HTML, CSS, Vanilla JavaScript</p>
+                    <div class="project-links">
+                        <a href="[ใส่ลิงก์ Demo]" target="_blank"><i class="fas fa-desktop"></i> Demo</a>
+                        <a href="[ใส่ลิงก์ GitHub]" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Responsive Travel Agency Site</h3>
+                    <p>เว็บไซต์จำลองสำหรับบริษัทท่องเที่ยว เน้นการใช้ CSS Grid และ Flexbox เพื่อให้ Layout สวยงามบนทุกอุปกรณ์</p>
+                    <p><b>เทคโนโลยี:</b> HTML5, CSS3, Media Queries</p>
+                    <div class="project-links">
+                        <a href="[ใส่ลิงก์ Demo]" target="_blank"><i class="fas fa-desktop"></i> Demo</a>
+                        <a href="[ใส่ลิงก์ GitHub]" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>[ชื่อโครงการ 3]</h3>
+                    <p>[คำอธิบายสั้นๆ เกี่ยวกับโครงการที่ 3 และเทคโนโลยีที่ใช้]</p>
+                    <p><b>เทคโนโลยี:</b> [เช่น React, Bootstrap, Fetch API]</p>
+                    <div class="project-links">
+                        <a href="[ใส่ลิงก์ Demo]" target="_blank"><i class="fas fa-desktop"></i> Demo</a>
+                        <a href="[ใส่ลิงก์ GitHub]" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>📞 ติดต่อฉัน</h2>
+            <p>มาสร้างสิ่งดีๆ ด้วยกัน! ติดต่อฉันผ่านช่องทางด้านล่างนี้</p>
+            
+            <div class="social-links">
+                <a href="mailto:[ใส่อีเมลของคุณ]"><i class="fas fa-envelope"></i></a>
+                <a href="[ใส่ลิงก์ LinkedIn]" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="[ใส่ลิงก์ GitHub]" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 taksin. สร้างด้วย ❤️ HTML, CSS, และ JS</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scroll: ทำให้การคลิกที่ลิงก์ใน Navigation Bar เลื่อนไปยังส่วนต่างๆ อย่างนุ่มนวล
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('header nav a');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // ป้องกันการทำงานของลิงก์แบบ default (กระโดดทันที)
+                    e.preventDefault();
+
+                    // ดึง ID ของ section ที่ต้องการไป
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+
+                    if (targetSection) {
+                        // ใช้ method scrollIntoView เพื่อเลื่อนแบบนุ่มนวล
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
